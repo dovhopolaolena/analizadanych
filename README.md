@@ -1,9 +1,10 @@
 # analizadanych
 ```{r}
-dane<-apartments_pl_2024_06
+library(readr)
 library(dplyr)
 install.packages("naniar")
 library(naniar)
+dane <- read_csv("apartments_pl_2024_06.csv")
 dane_gdansk<-filter(dane, city=="gdansk")
 vis_miss(dane_gdansk)
 miss_var_summary(dane_gdansk)
