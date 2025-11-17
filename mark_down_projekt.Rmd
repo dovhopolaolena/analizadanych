@@ -20,3 +20,9 @@ vis_miss(dane_gdansk)
 miss_var_summary(dane_gdansk)
 ```
 
+```{r}
+install.packages("finalfit")
+library(finalfit)
+missing_pattern(dane_gdansk)
+```
+
