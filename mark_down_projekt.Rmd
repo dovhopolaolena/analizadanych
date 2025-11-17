@@ -17,14 +17,17 @@ library(naniar)
 mieszkania <- read_csv("apartments_pl_2024_06.csv")
 dane<-filter(dane, city=="gdansk")
 dane_gdansk <- dane %>%
-  select(-c(id,longitude,latitude))
+  select(-c(id,longitude,latitude, condition, buildingMaterial))
 vis_miss(dane_gdansk)
 miss_var_summary(dane_gdansk)
 ```
+
+
 
 ```{r}
 install.packages("finalfit")
 library(finalfit)
 missing_pattern(dane_gdansk)
+
 ```
 
