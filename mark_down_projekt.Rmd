@@ -10,13 +10,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+install.packages("naniar")
 library(readr)
 library(dplyr)
-install.packages("naniar")
 library(naniar)
-dane <- read_csv("apartments_pl_2024_06.csv")
-dane_gdansk<-filter(dane, city=="gdansk")
+mieszkania <- read_csv("apartments_pl_2024_06.csv")
+dane<-filter(dane, city=="gdansk")
+dane_gdansk <- dane %>%
+  select(-c(id,longitude,latitude))
 vis_miss(dane_gdansk)
 miss_var_summary(dane_gdansk)
+```
+
+```{r}
+install.packages("finalfit")
+library(finalfit)
+missing_pattern(dane_gdansk)
 ```
 
